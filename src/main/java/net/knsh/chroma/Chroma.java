@@ -2,6 +2,7 @@ package net.knsh.chroma;
 
 import com.tterrag.registrate.Registrate;
 import net.fabricmc.api.ModInitializer;
+import net.knsh.chroma.network.ChromaC2S;
 import net.knsh.chroma.registry.ChromaEffects;
 import net.knsh.chroma.registry.ChromaItems;
 import net.knsh.chroma.registry.ChromaPotions;
@@ -20,6 +21,7 @@ public class Chroma implements ModInitializer {
 
 		ChromaEffects.register();
 		ChromaPotions.register();
+		ChromaC2S.register();
 		ChromaItems.register(REGISTRATE);
 		DrunkifyMessage.createDrunkWords();
 

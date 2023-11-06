@@ -11,7 +11,10 @@ public class ChromaS2C {
     public static void register() {
         ClientPlayNetworking.registerGlobalReceiver(ALCOHOL_PACKET_ID, (client, handler, buf, responseSender) -> {
             if (client.player != null) {
-                ((PlayerDataSaver) client.player).getPersistentData().putInt("alcohol", buf.readInt());
+                int alcoholLevel = buf.readInt();
+                client.execute(() -> {
+                    ((PlayerDataSaver) client.player).getPersistentData().putInt("alcohol", alcoholLevel);
+                });
             }
         });
     }

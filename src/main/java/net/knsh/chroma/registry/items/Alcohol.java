@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.knsh.chroma.Chroma;
 import net.knsh.chroma.network.ChromaS2C;
+import net.knsh.chroma.network.SendPacket;
 import net.knsh.chroma.util.PlayerDataSaver;
 import net.knsh.chroma.util.SimplePlayerData;
 import net.minecraft.advancement.criterion.Criteria;
@@ -46,9 +47,7 @@ public class Alcohol extends HoneyBottleItem {
             SimplePlayerData.setIntNbt(((PlayerDataSaver) serverPlayerEntity), "alcohol", newAlcoholLevel);
             Chroma.LOGGER.info(String.valueOf(newAlcoholLevel));
 
-            PacketByteBuf buffer = PacketByteBufs.create();
-            buffer.writeInt(newAlcoholLevel);
-            ServerPlayNetworking.send(serverPlayerEntity, ChromaS2C.ALCOHOL_PACKET_ID, buffer);
+            ServerPlayNetworking.send(serverPlayerEntity, ChromaS2C.ALCOHOL_PACKET_ID, SendPacket.sendIntPacket(newAlcoholLevel));
 
             Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
             serverPlayerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
