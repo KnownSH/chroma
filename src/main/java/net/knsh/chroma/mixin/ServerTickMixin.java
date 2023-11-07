@@ -40,7 +40,7 @@ public class ServerTickMixin implements ServerTick {
     }
 
     @Override
-    public void sendServer(MinecraftServer server) {
+    public void chroma_1_19_2$sendServer(MinecraftServer server) {
         this.server = server;
     }
 }

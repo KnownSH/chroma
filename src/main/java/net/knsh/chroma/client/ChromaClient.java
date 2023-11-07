@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.knsh.chroma.network.ChromaC2S;
 import net.knsh.chroma.network.ChromaS2C;
+import net.knsh.chroma.registry.client.ChromaColorProviders;
 
 public class ChromaClient implements ClientModInitializer {
 	@Override
@@ -15,5 +16,6 @@ public class ChromaClient implements ClientModInitializer {
 		});
 
 		ChromaS2C.register();
+		ChromaColorProviders.register();
 	}
 }

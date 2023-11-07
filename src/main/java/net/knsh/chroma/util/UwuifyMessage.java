@@ -2,7 +2,7 @@ package net.knsh.chroma.util;
 
 // From Estrogen by MayaqqDev
 // https://github.com/MayaqqDev/Estrogen/blob/1.20.1/src/main/java/dev/mayaqq/estrogen/utils/UwUfy.java
-// Modified for Chroma by KnownSH
+// Modified for Chroma Brewery by KnownSH
 
 public class UwuifyMessage {
     public static String alterString(String input) {

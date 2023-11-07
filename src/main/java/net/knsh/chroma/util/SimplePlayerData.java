@@ -10,8 +10,6 @@ public class SimplePlayerData {
 
     public static int getIntNbt(PlayerDataSaver player, String key) {
         NbtCompound nbt = player.getPersistentData();
-        int value = nbt.getInt(key);
-
-        return value;
+        return nbt.getInt(key);
     }
 }

@@ -2,16 +2,16 @@
 	"schemaVersion": 1,
 	"id": "chroma",
 	"version": "${version}",
-	"name": "Create: Chroma",
-	"description": "An addon for the Create mod which adds a whole bunch of vastly different things.",
+	"name": "Chroma Brewery",
+	"description": "An advanced Brewery mod inspired by the BreweryNG plugin for Spigot",
 	"authors": [
 		"KnownSH"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/KnownSH/chroma/"
 	},
-	"license": "CC0-1.0",
+	"license": "LGPL-2.1",
 	"icon": "assets/chroma/icon.png",
 	"environment": "*",
 	"entrypoints": {
@@ -22,7 +22,7 @@
 			"net.knsh.chroma.client.ChromaClient"
 		],
 		"fabric-datagen": [
-          "net.knsh.chroma.ChromaDataGenerator"
+			"net.knsh.chroma.ChromaDataGenerator"
 		]
 	},
 	"mixins": [
@@ -31,7 +31,6 @@
 	"depends": {
 		"fabricloader": ">=0.14.24",
 		"minecraft": "~1.19.2",
-
 		"java": ">=17",
 		"fabric-api": "*"
 	},

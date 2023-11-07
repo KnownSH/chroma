@@ -9,6 +9,7 @@ import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.HoneyBottleItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -21,11 +22,18 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 public class Alcohol extends HoneyBottleItem {
-    public static int ALCOHOL_CONTENT = 10;
     private static final int ALCOHOL_LIMIT = 100;
+    private final int alcoholContent;
+    private final int alcoholColor;
 
-    public Alcohol(Settings settings) {
+    public Alcohol(Settings settings, int alcoholContent, int alcoholTint) {
         super(settings);
+        this.alcoholContent = alcoholContent;
+        this.alcoholColor = alcoholTint;
+    }
+
+    public int getAlcoholColor(int tintIndex) {
+        return tintIndex == 1 ? alcoholColor: -1;
     }
 
     @Override
@@ -36,8 +44,8 @@ public class Alcohol extends HoneyBottleItem {
             int playerAlcoholLevel = SimplePlayerData.getIntNbt(((PlayerDataSaver) serverPlayerEntity), "alcohol");
             int newAlcoholLevel = playerAlcoholLevel;
 
-            if (playerAlcoholLevel + ALCOHOL_CONTENT <= ALCOHOL_LIMIT) {
-                newAlcoholLevel += ALCOHOL_CONTENT;
+            if (playerAlcoholLevel + alcoholContent <= ALCOHOL_LIMIT) {
+                newAlcoholLevel += alcoholContent;
             } else {
                 newAlcoholLevel = 100;
             }
@@ -72,7 +80,7 @@ public class Alcohol extends HoneyBottleItem {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         int playerAlcoholLevel = SimplePlayerData.getIntNbt(((PlayerDataSaver) user), "alcohol");
 
-        if (playerAlcoholLevel + ALCOHOL_CONTENT > 100) {
+        if (playerAlcoholLevel + alcoholContent > 100) {
             user.sendMessage(Text.translatable("item.chroma.alcohol.drinking_limit"), true);
             return TypedActionResult.pass(user.getStackInHand(hand));
         }
