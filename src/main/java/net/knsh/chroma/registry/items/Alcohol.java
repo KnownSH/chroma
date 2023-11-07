@@ -1,8 +1,6 @@
 package net.knsh.chroma.registry.items;
 
-import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-import net.knsh.chroma.Chroma;
 import net.knsh.chroma.network.ChromaS2C;
 import net.knsh.chroma.network.SendPacket;
 import net.knsh.chroma.util.PlayerDataSaver;
@@ -13,11 +11,13 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.HoneyBottleItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
+import net.minecraft.text.Text;
+import net.minecraft.util.Hand;
+import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 public class Alcohol extends HoneyBottleItem {
@@ -66,5 +66,17 @@ public class Alcohol extends HoneyBottleItem {
     @Override
     public SoundEvent getDrinkSound() {
         return SoundEvents.ENTITY_GENERIC_DRINK;
+    }
+
+    @Override
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+        int playerAlcoholLevel = SimplePlayerData.getIntNbt(((PlayerDataSaver) user), "alcohol");
+
+        if (playerAlcoholLevel + ALCOHOL_CONTENT > 100) {
+            user.sendMessage(Text.translatable("item.chroma.alcohol.drinking_limit"), true);
+            return TypedActionResult.pass(user.getStackInHand(hand));
+        }
+
+        return super.use(world, user, hand);
     }
 }

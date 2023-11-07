@@ -14,5 +14,6 @@ public class EnLangProvider extends FabricLanguageProvider {
     public void generateTranslations(TranslationBuilder translationBuilder) {
         translationBuilder.add(ChromaEffects.DRUNK_EFFECT, "Drunkeness");
         translationBuilder.add(ChromaEffects.UWUIFY_EFFECT, "Uwuification");
+        translationBuilder.add("item.chroma.alcohol.drinking_limit", "You can't drink anymore.");
     }
 }

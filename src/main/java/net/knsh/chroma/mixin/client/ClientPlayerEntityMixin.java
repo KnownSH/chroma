@@ -35,6 +35,7 @@ public abstract class ClientPlayerEntityMixin {
         if (player.hasStatusEffect(ChromaEffects.UWUIFY_EFFECT)) {
             message = UwuifyMessage.alterString(message);
         }
+
         return message;
     }
 }

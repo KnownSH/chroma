@@ -1,4 +1,5 @@
 {
   "effect.chroma.drunk": "Drunkeness",
-  "effect.chroma.uwuify": "Uwuification"
+  "effect.chroma.uwuify": "Uwuification",
+  "item.chroma.alcohol.drinking_limit": "You can't drink anymore."
 }

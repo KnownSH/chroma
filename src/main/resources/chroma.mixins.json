@@ -3,7 +3,8 @@
 	"package": "net.knsh.chroma.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"PlayerEntityMixin"
+		"PlayerEntityMixin",
+		"ServerTickMixin"
 	],
 	"client": [
 		"client.ClientPlayerEntityMixin"
