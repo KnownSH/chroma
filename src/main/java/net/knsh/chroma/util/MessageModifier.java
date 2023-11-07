@@ -2,6 +2,7 @@ package net.knsh.chroma.util;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 // From the BreweryNG plugin by BlueMoonVineyard
@@ -18,21 +19,38 @@ public class MessageModifier {
     private int alcohol = 1;
     private int percentage = 100;
 
-    public MessageModifier(String replace, String to, Optional<Integer> percentage, Optional<String> pre, Optional<Boolean> match, Optional<Integer> alcohol) {
-        this.from = replace;
-        this.to = to;
+    public MessageModifier(WordModifier word) {
+        this.from = word.replace();
+        this.to = word.to();
 
-        if (pre.isPresent()) {
-            String fullPre = pre.toString();
+        if (word.pre() != null) {
+            String fullPre = word.pre();
             this.pre = fullPre.split(",");
         }
 
-        match.ifPresent(bool -> this.match = bool);
-        alcohol.ifPresent(integer -> this.alcohol = integer);
-        percentage.ifPresent(integer -> this.percentage = integer);
+        if (word.match() != null) {
+            this.match = word.match();
+        }
+
+        if (word.atAmplitude() != null) {
+            this.alcohol = word.atAmplitude();
+        }
+
+        if (word.percentage() != null) {
+            this.percentage = word.percentage();
+        }
 
         if (this.from != null && this.to != null) {
             words.add(this);
+        }
+    }
+
+    public record WordModifier(String replace, String to, Integer percentage, String pre, Boolean match, Integer atAmplitude) {
+        public WordModifier {
+            Objects.requireNonNull(replace);
+            Objects.requireNonNull(to);
+
+            new MessageModifier(this);
         }
     }
 

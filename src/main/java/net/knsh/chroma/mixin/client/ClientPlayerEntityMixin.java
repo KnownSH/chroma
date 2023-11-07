@@ -1,13 +1,9 @@
 package net.knsh.chroma.mixin.client;
 
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
-import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
-import net.knsh.chroma.network.ChromaC2S;
-import net.knsh.chroma.network.ChromaS2C;
 import net.knsh.chroma.registry.ChromaEffects;
 import net.knsh.chroma.util.DrunkifyMessage;
 import net.knsh.chroma.util.PlayerDataSaver;
-import net.knsh.chroma.util.UwUifyMessage;
+import net.knsh.chroma.util.UwuifyMessage;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Mixin;
@@ -37,7 +33,7 @@ public abstract class ClientPlayerEntityMixin {
         }
 
         if (player.hasStatusEffect(ChromaEffects.UWUIFY_EFFECT)) {
-            message = UwUifyMessage.alterString(message);
+            message = UwuifyMessage.alterString(message);
         }
         return message;
     }

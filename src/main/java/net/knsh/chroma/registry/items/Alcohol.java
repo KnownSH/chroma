@@ -36,8 +36,6 @@ public class Alcohol extends HoneyBottleItem {
             int playerAlcoholLevel = SimplePlayerData.getIntNbt(((PlayerDataSaver) serverPlayerEntity), "alcohol");
             int newAlcoholLevel = playerAlcoholLevel;
 
-            Chroma.LOGGER.info(String.valueOf(newAlcoholLevel));
-
             if (playerAlcoholLevel + ALCOHOL_CONTENT <= ALCOHOL_LIMIT) {
                 newAlcoholLevel += ALCOHOL_CONTENT;
             } else {
@@ -45,8 +43,6 @@ public class Alcohol extends HoneyBottleItem {
             }
 
             SimplePlayerData.setIntNbt(((PlayerDataSaver) serverPlayerEntity), "alcohol", newAlcoholLevel);
-            Chroma.LOGGER.info(String.valueOf(newAlcoholLevel));
-
             ServerPlayNetworking.send(serverPlayerEntity, ChromaS2C.ALCOHOL_PACKET_ID, SendPacket.sendIntPacket(newAlcoholLevel));
 
             Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
