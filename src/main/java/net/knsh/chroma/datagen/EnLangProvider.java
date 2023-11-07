@@ -14,11 +14,21 @@ public class EnLangProvider extends FabricLanguageProvider {
 
     @Override
     public void generateTranslations(TranslationBuilder translationBuilder) {
-        translationBuilder.add(ChromaItems.BEER, "Beer");
+        String alcohol = "item.chroma.alcohol";
 
+        translationBuilder.add(ChromaItems.BEER, "Mug of Beer");
+        translationBuilder.add(ChromaItems.ALCOHOLIC_DRINK, "Mug of Alcoholic Drink");
+        translationBuilder.add(ChromaItems.MYSTERIOUS_SHOTGLASS, "Mysterious Shotglass");
         translationBuilder.add(ChromaEffects.DRUNK_EFFECT, "Drunkeness");
         translationBuilder.add(ChromaEffects.UWUIFY_EFFECT, "Uwuification");
         translationBuilder.add(ChromaTab.CHROMA_GROUP, "Chroma Brewery");
-        translationBuilder.add("item.chroma.alcohol.drinking_limit", "You can't drink anymore.");
+        translationBuilder.add(alcohol + ".drinking_limit", "You can't drink anymore.");
+        translationBuilder.add(alcohol + ".quality.awful", "Awful Brew");
+        translationBuilder.add(alcohol + ".quality.subpar", "Subpar Brew");
+        translationBuilder.add(alcohol + ".quality.standard", "Standard Brew");
+        translationBuilder.add(alcohol + ".quality.good", "Good Brew");
+        translationBuilder.add(alcohol + ".quality.fantastic", "Fantastic Brew");
+        translationBuilder.add(alcohol + ".quality.best", "Best Brew");
+        translationBuilder.add("item.chroma.mysterious", "Crazy? I was crazy once.");
     }
 }

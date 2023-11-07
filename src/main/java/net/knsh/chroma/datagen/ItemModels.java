@@ -17,16 +17,16 @@ public class ItemModels extends FabricModelProvider {
     }
 
     @Override
-    public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-
-    }
-
-    @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ChromaItems.BEER, item("mug_template"));
+        itemModelGenerator.register(ChromaItems.ALCOHOLIC_DRINK, item("glass_template"));
+        itemModelGenerator.register(ChromaItems.MYSTERIOUS_SHOTGLASS, item("shotglass_template"));
     }
 
     public static Model item(String parent) {
         return new Model(Optional.of(new Identifier(Chroma.MOD_ID, "item/" + parent)), Optional.empty());
     }
+
+    @Override
+    public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {}
 }

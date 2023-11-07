@@ -2,6 +2,15 @@
   "effect.chroma.drunk": "Drunkeness",
   "effect.chroma.uwuify": "Uwuification",
   "item.chroma.alcohol.drinking_limit": "You can't drink anymore.",
-  "item.chroma.beer": "Beer",
+  "item.chroma.alcohol.quality.awful": "Awful Brew",
+  "item.chroma.alcohol.quality.best": "Best Brew",
+  "item.chroma.alcohol.quality.fantastic": "Fantastic Brew",
+  "item.chroma.alcohol.quality.good": "Good Brew",
+  "item.chroma.alcohol.quality.standard": "Standard Brew",
+  "item.chroma.alcohol.quality.subpar": "Subpar Brew",
+  "item.chroma.alcoholic_drink": "Mug of Alcoholic Drink",
+  "item.chroma.beer": "Mug of Beer",
+  "item.chroma.mysterious": "Crazy? I was crazy once.",
+  "item.chroma.mysterious_shotglass": "Mysterious Shotglass",
   "itemGroup.chroma.chroma_group": "Chroma Brewery"
 }

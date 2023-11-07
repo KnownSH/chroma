@@ -1,15 +1,15 @@
 {
-	"required": true,
-	"package": "net.knsh.chroma.mixin",
-	"compatibilityLevel": "JAVA_17",
-	"mixins": [
-		"PlayerEntityMixin",
-		"ServerTickMixin"
-	],
-	"client": [
-		"client.ClientPlayerEntityMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
+  "required": true,
+  "package": "net.knsh.chroma.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "PlayerEntityMixin",
+    "ServerTickMixin"
+  ],
+  "client": [
+    "client.ClientPlayerEntityMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
 	}
 }

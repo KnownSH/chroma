@@ -27,10 +27,6 @@ public class UwuifyMessage {
             input = input.toUpperCase();
         }
 
-        // Add more letters to the end of words
-        if (stringLength % 2 == 0) {
-            input = input.replaceAll("(\\w)(\\b)", "$1$1$1$1$2");
-        }
         // 50% chance to duplicate the first letter and add '-'
         if (!(stringLength % 2 == 0)) {
             input = input.replaceAll("\\b(\\w)(\\w*)\\b", "$1-$1$2");

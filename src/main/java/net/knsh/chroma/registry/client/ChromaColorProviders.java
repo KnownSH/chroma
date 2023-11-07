@@ -7,6 +7,6 @@ import net.knsh.chroma.registry.items.Alcohol;
 public class ChromaColorProviders {
     public static void register() {
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> ((Alcohol) stack.getItem()).getAlcoholColor(tintIndex),
-                ChromaItems.BEER);
+                ChromaItems.BEER, ChromaItems.ALCOHOLIC_DRINK, ChromaItems.MYSTERIOUS_SHOTGLASS);
     }
 }
